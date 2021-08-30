@@ -1,5 +1,10 @@
 import React, { useCallback, useState } from 'react';
 import { useAuthContext } from '../../contexts/auth';
+import AppButton from "@/components/appButton";
+import { AppInpunt } from '@/components/appInput';
+import { AppSpacer } from "@/components/appSpacer";
+import { AppActions } from "@/components/appActions";
+import AuthContainder from "../../containers/authContainer";
 
 interface FormState {
     username: string;
@@ -24,6 +29,7 @@ const SingIn: React.FC = () => {
                 [event.target.name]: event.target.value,
             }));
         },
+
         [],
     );
 
@@ -36,20 +42,43 @@ const SingIn: React.FC = () => {
     );
 
     return (
-        <div className="login-container">
-            <input
+        <AuthContainder>
+
+            <AppInpunt
+                color="blue"
                 name="username"
                 onChange={handleInputChange}
             />
-
-            <input
+           
+            <AppInpunt
+                color="blue"
                 name="password"
                 type="password"
                 onChange={handleInputChange}
             />
-            <button onClick={handleSubmit}
-            > Entrar </button>
-        </div>
+
+            <AppActions>
+
+                <AppButton
+                    color="blue"
+                    text
+                    onClick={handleSubmit}
+                >
+                    Criar conta
+                </AppButton>
+
+                <AppSpacer />
+
+                <AppButton
+                    color="blue"
+                    outline
+                    onClick={handleSubmit}
+                >
+                    Entrar
+                </AppButton>
+
+            </AppActions>
+        </AuthContainder>
     );
 };
 
