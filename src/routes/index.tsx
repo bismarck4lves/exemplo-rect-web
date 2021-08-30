@@ -7,6 +7,15 @@ import usePageTracking from '@/utils/pageTracking';
 import Dashboard from "@/features/dashboard";
 import SingIn from "@/features/auth/pages/singIn";
 import Candidatos from "@/features/canidatos";
+
+
+/*
+* A variável screens é criada, exportada e utilizada em AuthStack.Screen.
+* Essa abordagem foi desenvolvida assim pois desta forma a lista de names  fica disponível para outros 
+* compoonetes. assim, quando o componente quiser mudar de screen, ao invés de passar string, ele importa screens e usa o atributo referente.
+* Por sua vez, se o nome da screen for mudado aqui, não afeta seus dependentes.
+*/
+
 export const screens = {
   public: {
     singIn: '/singin',

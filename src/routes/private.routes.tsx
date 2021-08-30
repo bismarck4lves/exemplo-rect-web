@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { useAuthContext } from '@/features/auth/contexts/auth';
 import React from 'react';
+import { useAuthContext } from '@/features/auth/contexts/auth';
 import { Redirect, Route, RouteProps } from 'react-router-dom';
 import { screens } from "./index";
 
