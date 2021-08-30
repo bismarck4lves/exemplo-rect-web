@@ -7,14 +7,13 @@ import React, {
 } from 'react';
 import { signIn, signOut } from "../services/auth";
 import { ISingIn } from "../types/auth_d";
-// import { useHistory } from 'react-router-dom';
 import {
   AuthContextData,
   AuthProviderProps,
   AuthState
 } from '../types/auth_d';
 
-import { saveUser, removeUser, getUser } from '@/services/storage';
+import { saveUser, removeUser, getUser, saveToken } from '@/services/storage';
 
 const AuthContext = React.createContext<AuthContextData>({} as AuthContextData);
 
@@ -27,14 +26,12 @@ const initialState: AuthState = {
 export const AuthProvider: React.FC<AuthProviderProps> = ({
   children
 }: AuthProviderProps) => {
-  const user = getUser();
-
-  // const history = useHistory();
 
   useEffect(() => {
+    const user = getUser();
     if (user)
       processLogin(user);
-  });
+  }, []);
 
   const [state, setState] = useState<AuthState>(() => ({} as AuthState));
 
@@ -47,8 +44,12 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({
   };
   const dispatchLogin = useCallback(
     async ({ username, password }: ISingIn) => {
-      const { user } = await signIn({ username, password });
+      const { user, credentials } = await signIn({ username, password });
+      
       saveUser(user);
+      
+      saveToken(credentials?.access_token);
+      
       processLogin(user);
     },
     [],

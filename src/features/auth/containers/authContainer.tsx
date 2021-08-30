@@ -12,6 +12,5 @@ const AuthContainer: React.FC = ({ children }) => {
         </ContainerCenterXY>
     );
 };
-
 export default AuthContainer;
 

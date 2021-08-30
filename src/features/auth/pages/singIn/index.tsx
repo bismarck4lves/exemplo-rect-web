@@ -68,7 +68,10 @@ const SingIn: React.FC = () => {
                 </AppButton>
 
                 <AppSpacer />
-
+                
+                <button onClick={handleSubmit}>
+                    Logar
+                </button>
                 <AppButton
                     color="blue"
                     outline

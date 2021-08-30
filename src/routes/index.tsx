@@ -3,16 +3,17 @@ import PrivateRoutes from "./private.routes";
 import PublicRoutes from "./public.routes";
 import { Switch } from 'react-router-dom';
 import usePageTracking from '@/utils/pageTracking';
-//components
-import Dashboard from "@/features/dashboard/logged";
-import singIn from "@/features/auth/pages/singIn";
-
+//pages
+import Dashboard from "@/features/dashboard";
+import SingIn from "@/features/auth/pages/singIn";
+import Candidatos from "@/features/canidatos";
 export const screens = {
   public: {
-    singIn: '/singin'
+    singIn: '/singin',
   },
   private: {
-    dashboard: '/'
+    dashboard: '/',
+    candidatos: '/candidatos'
   }
 };
 
@@ -20,8 +21,10 @@ const Routes: React.FC = () => {
   usePageTracking();
   return (
     <Switch>
-      <PublicRoutes path={screens.public.singIn} component={singIn} restricted />
+      <PublicRoutes path={screens.public.singIn} component={SingIn} restricted />
+      
       <PrivateRoutes path={screens.private.dashboard} exact component={Dashboard} />
+      <PrivateRoutes path={screens.private.candidatos} exact component={Candidatos} />
     </Switch>
   );
 };

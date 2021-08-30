@@ -2,6 +2,7 @@
 import React, { useMemo } from 'react';
 import { Route, Redirect, RouteProps } from 'react-router-dom';
 import { useAuthContext } from '@/features/auth/contexts/auth';
+import {screens} from "./index"
 
 interface PublicRouteProps extends Omit<RouteProps, 'component'> {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -22,7 +23,7 @@ const PublicRoute: React.FC<PublicRouteProps> = ({
             {...rest}
             render={props => {
                 return isSignedIn && restricted ? (
-                    <Redirect to="/" />
+                    <Redirect to={screens.private.dashboard} />
                 ) : (
                     <Component {...props} />
                 );

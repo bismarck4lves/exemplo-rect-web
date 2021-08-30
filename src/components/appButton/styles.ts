@@ -5,6 +5,7 @@ import styled from 'styled-components';
 const baseButton = styled.button`
     padding:  5px 20px 5px 20px ;
     border-radius:4px;
+    cursor: pointer;
 `;
 
 export const ButtonDefault = styled(baseButton)`
