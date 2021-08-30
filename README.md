@@ -1,24 +1,33 @@
+## Começando a asar
+
+* instale o projeto e suas dependências
+`yarn instal ou npm install`
+
+*  Crie um arquivo env.json em environments
+`cp src/environments/aws.json src/environments/env.json`
+
 ## Comandos de execução
 
-`yarn start`
+`yarn start ou npm start`
 
-`yarn test`
+`yarn test ou npm test`
 
-`yarn build`
+`yarn build ou npm build`
 
-`yarn eject`
+`yarn eject ou npm eject`
 
 ## Estrutura do projeto
 
 src/
-|---- assets (aqui colocamos todos os arquivos de imagem)
+|---- assets
 |---- components (Todos os componentes que são disponibilizados globalmente na aplicação)
 |---- containers (Todas as estruturas padronizadoras como por exemplo: modais, auth ...)
 |---- features (Toda a regra de negócios)
-|---- routes (O nome ja diz hehe)
+|---- routes (O nome já diz hehe)
 |---- services (Serviços globais, **APENAS**!)
 |---- type (Tipos globais, **APENAS**!)
 |---- utils (recurso de ajudem globalmente na solução de problemas)
+|---- environments (fornece as informações de configuração do projeto com os ambiente conhecidos)
 
 ## Facilidades:
 
