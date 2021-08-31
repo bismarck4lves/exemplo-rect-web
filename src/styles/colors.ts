@@ -4,5 +4,4 @@ const colors: { [key: string]: any }=  {
     black: "black",
     error: "red"
 }
-
 export default colors

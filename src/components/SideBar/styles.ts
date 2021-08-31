@@ -1,13 +1,13 @@
 import styled from 'styled-components';
-import colors from '@/styles/colors';
 
 
 export const SidebarContainer = styled.div`
-    display:flex;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
     width:100%;
-    padding:10px;
-    border-bottom: 1px solid ${colors.black};
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 `;
 
 export const SidebarIdentidade = styled.div`
@@ -19,15 +19,18 @@ export const SidebarMenu = styled.div`
 `;
 
 export const SidebarTitle = styled.span`
-    font-weight:600;
-    margin-left: 20px;
-    font-size:18px;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 1;
+    margin: 6px 0 6px 10px;
+    display: inline-block;
+    vertical-align: top;
 `;
 
 export const SidebarImageLogo = styled.img`
-    width:100px;
+    width:40px;
 `;
 
 export const OptionMenu = styled.div`
     cursor: pointer;
-`; 
+`;

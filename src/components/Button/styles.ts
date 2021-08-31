@@ -1,11 +1,14 @@
-import colors from '@/styles/colors';
+import colors from '../../styles/colors';
 import styled from 'styled-components';
 
 
 const defineColor = (color?: string): string => {
-    if (!color) return colors.primary;
-    return (colors.hasOwnProperty('color')) ? colors[color] : color;
-};
+    return (
+        color?
+            colors.hasOwnProperty(color) ? colors[color] : color:
+            colors.primary
+    )
+};  
 
 const baseButton = styled.button`
     padding:  5px 20px 5px 20px ;

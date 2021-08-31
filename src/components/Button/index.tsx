@@ -3,7 +3,7 @@ import { ButtonDefault, ButtonOutlined, ButtonText } from './styles';
 import Spinner from "../Spinner";
 
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     color?: string;
     textColor?: string;
     outline?: boolean;
@@ -13,7 +13,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     actived?: boolean;
 }
 
-const Button: React.FC<ButtonProps> = ({
+const Button: React.FC<IButtonProps> = ({
     color = 'primary',
     outline = false,
     text = false,
@@ -23,7 +23,7 @@ const Button: React.FC<ButtonProps> = ({
     disabled = false,
     actived = false,
     ...rest
-}: ButtonProps) => {
+}: IButtonProps) => {
     if (outline)
         return (
             <ButtonOutlined color={color} {...rest}>

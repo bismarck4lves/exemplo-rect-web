@@ -16,6 +16,7 @@
 
 `yarn eject ou npm eject`
 
+`yarn storybook`
 ## Estrutura do projeto
 
 src/
