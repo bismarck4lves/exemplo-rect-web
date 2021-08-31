@@ -15,7 +15,7 @@ import {
 
 import { saveUser, removeUser, getUser, saveToken } from '@/services/storage';
 
-const AuthContext = React.createContext<AuthContextData>({} as AuthContextData);
+export const AuthContext = React.createContext<AuthContextData>({} as AuthContextData);
 
 
 const initialState: AuthState = {

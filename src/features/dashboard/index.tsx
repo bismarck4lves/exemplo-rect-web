@@ -1,18 +1,18 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import {screens} from '@/routes/index'
-
+import { screens } from '@/routes/index';
+import DefaultLaytou from '@/containers/DefaultLayout';
 
 const Logged: React.FC = () => {
 
-    const  history = useHistory();
-    
-    return (
-        <button onClick={()=> history.push(screens.private.candidatos)}>
-            
-            Ir para Candidatos
+    const history = useHistory();
 
-        </button>
+    return (
+        <DefaultLaytou title="Dashboard">
+            <button onClick={() => history.push(screens.private.candidatos)}>
+                Ir para Candidatos
+            </button>
+        </DefaultLaytou>
     );
 };
 

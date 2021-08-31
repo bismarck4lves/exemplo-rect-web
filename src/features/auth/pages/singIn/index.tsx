@@ -1,10 +1,10 @@
 import React, { useCallback, useState } from 'react';
 import { useAuthContext } from '../../contexts/auth';
-import AppButton from "@/components/appButton";
-import { AppInpunt } from '@/components/appInput';
-import { AppSpacer } from "@/components/appSpacer";
-import { AppActions } from "@/components/appActions";
+import AppButton from "@/components/Button";
+import { AppInpunt } from '@/components/Input';
+import { AppActions, AppSpacer } from "@/components/Actions";
 import AuthContainder from "../../containers/authContainer";
+
 
 interface FormState {
     username: string;

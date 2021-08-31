@@ -7,11 +7,11 @@ interface DefaulLayoutProps {
     children?: React.ReactNode;
 }
 
-const DefaultLaytou: React.FC<DefaulLayoutProps> = ({ children }) => {
+const DefaultLaytou: React.FC<DefaulLayoutProps> = ({ children, title }) => {
 
     return (
         <>
-            <SideBard/>
+            <SideBard title={title} />
             {children}
         </>
     );
