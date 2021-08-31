@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SideBard from "@/components/SideBar";
 
 interface DefaulLayoutProps {
@@ -7,7 +7,12 @@ interface DefaulLayoutProps {
     children?: React.ReactNode;
 }
 
-const DefaultLaytou: React.FC<DefaulLayoutProps> = ({ children, title }) => {
+const DefaultLayout: React.FC<DefaulLayoutProps> = ({ children, title }) => {
+
+    useEffect(()=> {
+        const project  = require('../../../package.json').name
+        document.title = `${project} | ${title}`
+    }, [title])
 
     return (
         <>
@@ -18,4 +23,4 @@ const DefaultLaytou: React.FC<DefaulLayoutProps> = ({ children, title }) => {
 
 };
 
-export default DefaultLaytou;
+export default DefaultLayout;

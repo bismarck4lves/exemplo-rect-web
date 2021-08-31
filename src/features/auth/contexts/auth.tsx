@@ -27,6 +27,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({
   children
 }: AuthProviderProps) => {
 
+  const [loadding, setLoading] = useState(false);
+
+
   useEffect(() => {
     const user = getUser();
     if (user)
@@ -44,15 +47,21 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({
   };
   const dispatchLogin = useCallback(
     async ({ username, password }: ISingIn) => {
+
+      setLoading(true);
+
       const { user, credentials } = await signIn({ username, password });
-      
+
       saveUser(user);
-      
+
       saveToken(credentials?.access_token);
-      
-      processLogin(user);
-    },
-    [],
+
+      setTimeout(() => {
+        processLogin(user);
+        setLoading(false);
+      }, 2000);
+
+    },[]
   );
 
   const dispatchLogout = useCallback(async () => {
@@ -66,6 +75,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({
       value={[
         state,
         {
+          loadding,
           dispatchLogin,
           dispatchLogout
         },

@@ -1,5 +1,6 @@
 import React from 'react';
 import { ButtonDefault, ButtonOutlined, ButtonText } from './styles';
+import Spinner from "../Spinner";
 
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -12,35 +13,38 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     actived?: boolean;
 }
 
-const AppButton: React.FC<ButtonProps> = ({
+const Button: React.FC<ButtonProps> = ({
     color = 'primary',
     outline = false,
     text = false,
     loading = false,
     hasError = false,
     children,
-    disabled,
-    actived,
+    disabled = false,
+    actived = false,
     ...rest
 }: ButtonProps) => {
-
     if (outline)
         return (
-            <ButtonOutlined color={color}>  {children}  </ButtonOutlined>
+            <ButtonOutlined color={color} {...rest}>
+                {loading ? <Spinner loadding={loading} /> : children}
+            </ButtonOutlined>
         );
 
     if (text)
         return (
-            <ButtonText color={color}> {children}  </ButtonText>
+            <ButtonText color={color} {...rest}>
+                {loading ? <Spinner loadding={loading} /> : children}
+            </ButtonText>
         );
-
     return (
-        <ButtonDefault color={color}>  {children} </ButtonDefault>
+        <ButtonDefault color={color} {...rest}>
+            {loading ? <Spinner loadding={loading} /> : children}
+        </ButtonDefault>
     );
-
 };
 
-AppButton.defaultProps = {
+Button.defaultProps = {
     loading: false,
     hasError: false,
     actived: false,
@@ -49,4 +53,4 @@ AppButton.defaultProps = {
     color: 'primary',
 };
 
-export default AppButton;
+export default Button;

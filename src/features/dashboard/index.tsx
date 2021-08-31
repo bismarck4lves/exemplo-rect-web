@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { screens } from '@/routes/index';
 import DefaultLaytou from '@/containers/DefaultLayout';
 
-const Logged: React.FC = () => {
+const Dashboard: React.FC = () => {
 
     const history = useHistory();
 
@@ -16,4 +16,4 @@ const Logged: React.FC = () => {
     );
 };
 
-export default Logged;
+export default Dashboard;

@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from 'react';
 import { useAuthContext } from '../../contexts/auth';
-import AppButton from "@/components/Button";
-import { AppInpunt } from '@/components/Input';
-import { AppActions, AppSpacer } from "@/components/Actions";
+import Button from "@/components/Button";
+import Inpunt from '@/components/Input';
+import { Actions, Spacer } from "@/components/Actions";
 import AuthContainder from "../../containers/authContainer";
 
 
@@ -13,7 +13,7 @@ interface FormState {
 
 const SingIn: React.FC = () => {
 
-    const [, { dispatchLogin }] = useAuthContext();
+    const [, { loadding, dispatchLogin }] = useAuthContext();
 
     const [formState, setFormState] = useState<FormState>({
         username: '',
@@ -43,46 +43,35 @@ const SingIn: React.FC = () => {
 
     return (
         <AuthContainder>
-
-            <AppInpunt
+            <Inpunt
                 color="blue"
                 name="username"
                 onChange={handleInputChange}
             />
-           
-            <AppInpunt
+            <Inpunt
                 color="blue"
                 name="password"
                 type="password"
                 onChange={handleInputChange}
             />
-
-            <AppActions>
-
-                <AppButton
+            <Actions>
+                <Button
                     color="blue"
                     text
-                    onClick={handleSubmit}
                 >
                     Criar conta
-                </AppButton>
-
-                <AppSpacer />
-                
-                <button onClick={handleSubmit}>
-                    Logar
-                </button>
-                <AppButton
+                </Button>
+                <Spacer />
+                <Button
                     color="blue"
                     outline
                     onClick={handleSubmit}
+                    loading={loadding}
                 >
                     Entrar
-                </AppButton>
-
-            </AppActions>
+                </Button>
+            </Actions>
         </AuthContainder>
     );
 };
-
 export default SingIn;

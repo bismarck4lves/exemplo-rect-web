@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useContext, useState } from 'react';
 import ReactModal from 'react-modal';
-import { AppActions, AppSpacer } from "../../Actions";
+import { Actions, Spacer } from "../../Actions";
 import { AuthContext } from "@/features/auth/contexts/auth";
 
 const LogOutDialog: React.FC = () => {
@@ -24,11 +24,11 @@ const LogOutDialog: React.FC = () => {
         isOpen={showModal.showModal}
       >
         <h2>Tem certeza que deseja sair? </h2>
-        <AppActions>
+        <Actions>
           <button onClick={handleCloseModal}>Cancelar </button>
-          <AppSpacer />
+          <Spacer />
           <button onClick={() => { dispatchLogout(); }}> Sim </button>
-        </AppActions>
+        </Actions>
       </ReactModal>
     </div>
   );

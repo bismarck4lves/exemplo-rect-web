@@ -12,6 +12,7 @@ export interface AuthState {
 }
 
 export interface AuthDispatch {
+    loadding: boolean;
     dispatchLogin: (payload: ISingIn) => void;
     dispatchLogout: () => Promise<void>;
 }
