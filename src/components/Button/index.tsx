@@ -30,7 +30,6 @@ const Button: React.FC<IButtonProps> = ({
                 {loading ? <Spinner loadding={loading} /> : children}
             </ButtonOutlined>
         );
-
     if (text)
         return (
             <ButtonText color={color} {...rest}>
