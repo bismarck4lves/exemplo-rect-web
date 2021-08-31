@@ -1,7 +1,7 @@
 ## Começando a asar
 
 * instale o projeto e suas dependências
-`yarn instal ou npm install`
+`yarn add -D package`
 
 *  Crie um arquivo env.json em environments
 `cp src/environments/aws.json src/environments/env.json`
