@@ -2,6 +2,7 @@ import React from 'react';
 import { ButtonDefault, ButtonOutlined, ButtonText } from './styles';
 import ButtonContent from './components/button-content';
 
+
 export interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     color?: string;
     textColor?: string;
@@ -27,7 +28,7 @@ const Button: React.FC<IButtonProps> = ({
 }: IButtonProps) => {
     if (outline)
         return (
-            <ButtonOutlined color={color} {...rest}>
+            <ButtonOutlined color={color} {...rest} className="button-outlined" >
                 <ButtonContent loading={loading} hideTextOnLoading={hideTextOnLoading}>
                     {children}
                 </ButtonContent>
@@ -35,14 +36,14 @@ const Button: React.FC<IButtonProps> = ({
         );
     if (text)
         return (
-            <ButtonText color={color} {...rest}>
+            <ButtonText color={color}  {...rest} className="button-text">
                 <ButtonContent loading={loading} hideTextOnLoading={hideTextOnLoading}>
                     {children}
                 </ButtonContent>
             </ButtonText>
         );
     return (
-        <ButtonDefault color={color} {...rest}>
+        <ButtonDefault color={color} {...rest} className="button-default">
             <ButtonContent loading={loading} hideTextOnLoading={hideTextOnLoading}>
                 {children}
             </ButtonContent>
