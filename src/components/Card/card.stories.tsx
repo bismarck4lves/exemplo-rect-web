@@ -4,7 +4,7 @@ import Card, { ICardProps } from './index';
 
 export default {
   component: Card,
-  title: 'Components/Card',
+  title: 'Components',
 } as Meta;
 
 const Template: Story<ICardProps> = (args) => <Card {...args} />;

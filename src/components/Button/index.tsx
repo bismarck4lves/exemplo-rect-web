@@ -1,7 +1,6 @@
 import React from 'react';
 import { ButtonDefault, ButtonOutlined, ButtonText } from './styles';
-import Spinner from "../Spinner";
-
+import ButtonContent from './components/button-content';
 
 export interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     color?: string;
@@ -9,6 +8,7 @@ export interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonEleme
     outline?: boolean;
     text?: boolean;
     loading?: boolean;
+    hideTextOnLoading?: boolean;
     hasError?: boolean;
     actived?: boolean;
 }
@@ -22,23 +22,30 @@ const Button: React.FC<IButtonProps> = ({
     children,
     disabled = false,
     actived = false,
+    hideTextOnLoading = false,
     ...rest
 }: IButtonProps) => {
     if (outline)
         return (
             <ButtonOutlined color={color} {...rest}>
-                {loading ? <Spinner loadding={loading} /> : children}
+                <ButtonContent loading={loading} hideTextOnLoading={hideTextOnLoading}>
+                    {children}
+                </ButtonContent>
             </ButtonOutlined>
         );
     if (text)
         return (
             <ButtonText color={color} {...rest}>
-                {loading ? <Spinner loadding={loading} /> : children}
+                <ButtonContent loading={loading} hideTextOnLoading={hideTextOnLoading}>
+                    {children}
+                </ButtonContent>
             </ButtonText>
         );
     return (
         <ButtonDefault color={color} {...rest}>
-            {loading ? <Spinner loadding={loading} /> : children}
+            <ButtonContent loading={loading} hideTextOnLoading={hideTextOnLoading}>
+                {children}
+            </ButtonContent>
         </ButtonDefault>
     );
 };

@@ -4,7 +4,7 @@ import Button, {IButtonProps } from './index';
 
 export default {
   component: Button,
-  title: 'Components/Button',
+  title: 'Components',
 } as Meta;
 
 const Template: Story<IButtonProps> = (args) => <Button {...args} />;

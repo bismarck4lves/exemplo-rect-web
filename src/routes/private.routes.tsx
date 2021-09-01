@@ -13,16 +13,17 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({
   component: Component,
   ...rest
 }: PrivateRouteProps) => {
+  
   const [{ user }] = useAuthContext();
 
   return (
     <Route
       {...rest}
-      render={props => {
-        if (user)
-          return <Component {...props} />;
-        return <Redirect to={screens.public.singIn} />;
-      }}
+      render={
+        props => user ?
+          <Component {...props} /> :
+          <Redirect to={screens.public.singIn} />
+      }
     />
   );
 };
