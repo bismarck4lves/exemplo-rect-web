@@ -9,6 +9,7 @@ interface ICardStyle {
     minheight: string;
 }
 
+
 export const CardStyle = styled.div<ICardStyle>`
     border:1px solid #e4e4e4;
     border-radius: 4px;
