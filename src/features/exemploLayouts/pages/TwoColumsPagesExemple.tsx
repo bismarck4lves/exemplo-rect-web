@@ -1,5 +1,5 @@
 import React from 'react';
-import TwoColumsLayout from '../containers/twoColunsExemple';
+import TwoColumsLayout from '../containers/TwoColunsExemple';
 import FormularioSimples from '../componets/FormularioSimples';
 import LoremIpsum from '../componets/LoremIpsum';
 import AguaImagem from '@/assets/aguia.jpg';

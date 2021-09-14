@@ -8,7 +8,7 @@ import Dashboard from "@/features/dashboard";
 import SingIn from "@/features/auth/pages/singIn";
 import Candidatos from "@/features/canidatos";
 import TwoColumsPagesExemple from "@/features/exemploLayouts/pages/TwoColumsPagesExemple";
-
+import TreeColunsPageExemple from "@/features/exemploLayouts/pages/TreeColunsPageExemple";
 /*
 * A variável screens é criada, exportada e utilizada em AuthStack.Screen.
 * Essa abordagem foi desenvolvida assim pois desta forma a lista de names  fica disponível para outros 
@@ -19,7 +19,8 @@ import TwoColumsPagesExemple from "@/features/exemploLayouts/pages/TwoColumsPage
 export const screens = {
   public: {
     singIn: '/singin',
-    duasPaginasExemplo: '/duas-paginas-exemplo'
+    duasPaginasExemplo: '/duas-paginas-exemplo',
+    tresPaginasExemplo: '/tres-paginas-exemplo'
   },
   private: {
     dashboard: '/',
@@ -33,6 +34,8 @@ const Routes: React.FC = () => {
     <Switch>
       <PublicRoutes path={screens.public.singIn} component={SingIn} restricted />
       <PublicRoutes path={screens.public.duasPaginasExemplo} component={TwoColumsPagesExemple} restricted />
+      <PublicRoutes path={screens.public.tresPaginasExemplo} component={TreeColunsPageExemple} restricted />
+      
       
       <PrivateRoutes path={screens.private.dashboard} exact component={Dashboard} />
       <PrivateRoutes path={screens.private.candidatos} exact component={Candidatos} />
