@@ -10,7 +10,12 @@ const defineColor = (color?: string): string => {
     );
 };
 
-const baseButton = styled.button`
+
+interface IButtonProps {
+    color?: string;
+    block?: boolean;
+}
+const baseButton = styled.button<IButtonProps>`
     padding:  5px 20px 5px 20px ;
     border-radius:4px;
     cursor: pointer;
@@ -19,8 +24,10 @@ const baseButton = styled.button`
 `;
 
 export const ButtonDefault = styled(baseButton)`
+    width:${props => props.block ? '100%' : null};
     color: ${colors.white};
     background-color: ${props => defineColor(props.color)};
+    
 `;
 
 export const ButtonOutlined = styled(baseButton)`

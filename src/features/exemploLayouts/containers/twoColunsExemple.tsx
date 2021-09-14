@@ -1,6 +1,13 @@
 import React, { ReactNode } from 'react';
-import { Container, Left, Right, Title, Description, ImagemGrande } from './styled';
-
+import {
+    Left,
+    Title,
+    Right,
+    Container,
+    Description,
+    ImagemGrande
+} from './styled';
+import Card from "@/components/Card";
 
 interface TwoColumsLayoutProps {
     img?: string;
@@ -17,16 +24,20 @@ const TwoColumsLayout: React.FC<TwoColumsLayoutProps> = ({
 }) => (
     <Container>
         <Left>
-            <Title>
-                {title}
-            </Title>
-            <ImagemGrande src={img} alt={title} />
-            <Description>
-                {description}
-            </Description>
+            <Card>
+                <Title>
+                    {title}
+                </Title>
+                <ImagemGrande src={img} alt={title} />
+                <Description>
+                    {description}
+                </Description>
+            </Card>
         </Left>
         <Right>
-            {recurso}
+            <Card>
+                {recurso}
+            </Card>
         </Right>
     </Container>
 );

@@ -4,12 +4,13 @@ import { CardStyle } from "./styles";
 
 export interface ICardProps {
     children: ReactNode;
-    width: string;
-    height: string;
-    maxWidth: string;
-    maxheight: string;
-    minWidth: string;
-    minheight: string;
+    width?: string;
+    height?: string;
+    maxWidth?: string;
+    maxheight?: string;
+    minWidth?: string;
+    minheight?: string;
+    shadow?: boolean;
 }
 
 const Card: React.FC<ICardProps> = ({
@@ -20,6 +21,7 @@ const Card: React.FC<ICardProps> = ({
     maxheight,
     minWidth,
     minheight,
+    shadow,
     ...rest
 }) => (
     <CardStyle
@@ -29,6 +31,7 @@ const Card: React.FC<ICardProps> = ({
         maxheight={maxheight}
         minWidth={minWidth}
         minheight={minheight}
+        shadow={shadow}
         {...rest}
     >
         {children}

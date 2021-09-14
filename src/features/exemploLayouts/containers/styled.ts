@@ -1,17 +1,15 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    display:flex;
+   display:flex;
 `;
 
 export const Left = styled.div`
-   border:1px solid;
    padding: 20px;
    width: 600px;
 `;
 
 export const Right = styled.div`
-   border:1px solid;
    padding: 20px;
    width: 200px;
 `;

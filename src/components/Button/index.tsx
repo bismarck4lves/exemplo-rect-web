@@ -12,6 +12,7 @@ export interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonEleme
     hideTextOnLoading?: boolean;
     hasError?: boolean;
     actived?: boolean;
+    block?: boolean;
 }
 
 const Button: React.FC<IButtonProps> = ({
@@ -24,11 +25,12 @@ const Button: React.FC<IButtonProps> = ({
     disabled = false,
     actived = false,
     hideTextOnLoading = false,
+    block = false,
     ...rest
 }: IButtonProps) => {
     if (outline)
         return (
-            <ButtonOutlined color={color} {...rest} className="button-outlined" >
+            <ButtonOutlined color={color} block={block} {...rest} className="button-outlined" >
                 <ButtonContent loading={loading} hideTextOnLoading={hideTextOnLoading}>
                     {children}
                 </ButtonContent>
@@ -36,14 +38,14 @@ const Button: React.FC<IButtonProps> = ({
         );
     if (text)
         return (
-            <ButtonText color={color}  {...rest} className="button-text">
+            <ButtonText color={color} block={block} {...rest} className="button-text">
                 <ButtonContent loading={loading} hideTextOnLoading={hideTextOnLoading}>
                     {children}
                 </ButtonContent>
             </ButtonText>
         );
     return (
-        <ButtonDefault color={color} {...rest} className="button-default">
+        <ButtonDefault color={color} block={block} {...rest} className="button-default">
             <ButtonContent loading={loading} hideTextOnLoading={hideTextOnLoading}>
                 {children}
             </ButtonContent>
