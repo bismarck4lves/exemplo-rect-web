@@ -42,3 +42,35 @@ Faça uso do caminho absoluto utilzando @ para importar
 
 Isso não quer dizer que você não deve utilizar caminhos relativos. Mas deixe para utiliza-los em estruras menores. De preferência dentro do proprio componente.
 
+### Snippets VsCode interessantes:
+
+Instale em seu VScode:
+[Typescript-React-FC-Snippet](https://marketplace.visualstudio.com/items?itemName=Hans.typescript-react-fc-snippet "Typescript-React-FC-Snippet") e [Reactjs code snippets](https://marketplace.visualstudio.com/items?itemName=xabikos.ReactSnippets "Reactjs code snippets")
+
+**Os camandos mais básicos porém muito úteis**
+
+**cefc**:
+gera essa estrutura:
+
+```javascript
+    import react from "react";
+    export const ${1:componentName} = () => {
+        return <div></div>;
+    };
+
+```
+
+
+se for um component mais robusto, que precisará de interface:
+
+**tscfc**
+Que gera essa estrutura:
+```javascript
+
+import React, { FC } from 'react';
+interface IProps {};
+const ${1:componentName}:FC<IProps> = (props) => {
+    return <div>${3}</div>;
+};
+export default ${2:componentName};
+```

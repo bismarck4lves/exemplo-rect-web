@@ -7,7 +7,7 @@ import usePageTracking from '@/utils/pageTracking';
 import Dashboard from "@/features/dashboard";
 import SingIn from "@/features/auth/pages/singIn";
 import Candidatos from "@/features/canidatos";
-
+import TwoColumsPagesExemple from "@/features/exemploLayouts/pages/TwoColumsPagesExemple";
 
 /*
 * A variável screens é criada, exportada e utilizada em AuthStack.Screen.
@@ -19,10 +19,11 @@ import Candidatos from "@/features/canidatos";
 export const screens = {
   public: {
     singIn: '/singin',
+    duasPaginasExemplo: '/duas-paginas-exemplo'
   },
   private: {
     dashboard: '/',
-    candidatos: '/candidatos'
+    candidatos: '/candidatos',
   }
 };
 
@@ -31,6 +32,7 @@ const Routes: React.FC = () => {
   return (
     <Switch>
       <PublicRoutes path={screens.public.singIn} component={SingIn} restricted />
+      <PublicRoutes path={screens.public.duasPaginasExemplo} component={TwoColumsPagesExemple} restricted />
       
       <PrivateRoutes path={screens.private.dashboard} exact component={Dashboard} />
       <PrivateRoutes path={screens.private.candidatos} exact component={Candidatos} />
